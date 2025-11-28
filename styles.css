@@ -539,19 +539,24 @@ main {
 
 .predictor-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
+  flex-direction: column;
   gap: 1rem;
-  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.predictor-header .chart-header {
+  margin-bottom: 0;
 }
 
 .predictor-tool h2 {
   margin: 0;
   color: var(--primary);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .mode-toggle-btn {
@@ -961,6 +966,11 @@ main {
 
 .chart-header h2 {
   margin-bottom: 0;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .chart-controls {

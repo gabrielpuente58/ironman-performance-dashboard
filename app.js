@@ -1011,6 +1011,10 @@ function initializeDashboard(data) {
       }
     }
 
+    // Store original full domain for trend line consistency
+    let fullXDomain = [];
+    let fullYDomain = [];
+
     function renderTrendFromCache() {
       trendLayer.selectAll("*").remove();
 
@@ -1019,7 +1023,8 @@ function initializeDashboard(data) {
       if (!coeffs) return;
 
       const { m, b, r } = coeffs;
-      const [xMin, xMax] = x2.domain();
+      // Always use the full original domain for trend line endpoints
+      const [xMin, xMax] = fullXDomain.length ? fullXDomain : x2.domain();
       const yMin = m * xMin + b;
       const yMax = m * xMax + b;
 
@@ -1100,6 +1105,9 @@ function initializeDashboard(data) {
       const pts = buildPoints();
       x2.domain(d3.extent(pts, (d) => d.x)).nice();
       y2.domain(d3.extent(pts, (d) => d.y)).nice();
+      // Update stored full domain
+      fullXDomain = x2.domain().slice();
+      fullYDomain = y2.domain().slice();
       brushG.call(brush.move, null);
       updateScatter();
       renderTrendFromCache(); // just reposition cached line
@@ -1140,6 +1148,9 @@ function initializeDashboard(data) {
       if (!zoomed) {
         x2.domain(d3.extent(pts, (d) => d.x)).nice();
         y2.domain(d3.extent(pts, (d) => d.y)).nice();
+        // Store the full domain for consistent trend line rendering
+        fullXDomain = x2.domain().slice();
+        fullYDomain = y2.domain().slice();
       }
 
       const [xLo, xHi] = x2.domain();
