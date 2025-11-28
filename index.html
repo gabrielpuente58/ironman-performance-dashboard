@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ironman Arizona 2024 - Performance Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <div class="header-main">
+          <select id="raceSelect" class="race-title-select">
+            <option value="ironmanarizona2024_clean.csv">
+              Ironman Arizona 2024
+            </option>
+            <option value="ironman70.3st.george2025_clean.csv">
+              Ironman 70.3 St. George 2025
+            </option>
+            <option value="ironmanworldchampionship2025_clean.csv">
+              Ironman World Championship 2025
+            </option>
+          </select>
+          <p class="subtitle">Performance Analysis Dashboard</p>
+        </div>
+        <div class="header-actions">
+          <button class="insight-btn" id="insightBtn1">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Key Stats</span>
+          </button>
+          <button class="insight-btn" id="insightBtn2">
+            <i class="fa-solid fa-info-circle"></i>
+            <span>About Data</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Top Row: 3 columns -->
+      <div class="top-row">
+        <!-- Left: Top Finishers Cards -->
+        <section class="finisher-cards">
+          <!-- Male Finisher Card -->
+          <div class="flip-card" id="male-finisher-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div class="finisher-badge male">
+                  <span class="finisher-icon"
+                    ><i class="fa-solid fa-medal"></i
+                  ></span>
+                  <h3>Top Male Finisher</h3>
+                </div>
+                <div class="finisher-info" id="male-finisher-info">
+                  <p class="finisher-name">Loading...</p>
+                  <p class="finisher-time">--:--:--</p>
+                  <p class="finisher-country">--</p>
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <h3>Performance Stats</h3>
+                <div class="stats-grid" id="male-stats">
+                  <div class="stat-item">
+                    <span class="stat-label">Swim</span>
+                    <span class="stat-value">--:--:--</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">Bike</span>
+                    <span class="stat-value">--:--:--</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">Run</span>
+                    <span class="stat-value">--:--:--</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">Division</span>
+                    <span class="stat-value">--</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Female Finisher Card -->
+          <div class="flip-card" id="female-finisher-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div class="finisher-badge female">
+                  <span class="finisher-icon"
+                    ><i class="fa-solid fa-medal"></i
+                  ></span>
+                  <h3>Top Female Finisher</h3>
+                </div>
+                <div class="finisher-info" id="female-finisher-info">
+                  <p class="finisher-name">Loading...</p>
+                  <p class="finisher-time">--:--:--</p>
+                  <p class="finisher-country">--</p>
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <h3>Performance Stats</h3>
+                <div class="stats-grid" id="female-stats">
+                  <div class="stat-item">
+                    <span class="stat-label">Swim</span>
+                    <span class="stat-value">--:--:--</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">Bike</span>
+                    <span class="stat-value">--:--:--</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">Run</span>
+                    <span class="stat-value">--:--:--</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">Division</span>
+                    <span class="stat-value">--</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Middle: Chart 1 -->
+        <section class="chart-card" id="chart1-card">
+          <div class="chart-header">
+            <h2>Individual Athlete Split Times</h2>
+            <button class="expand-btn" onclick="toggleExpand('chart1-card')">
+              <i class="fa-solid fa-expand"></i>
+            </button>
+          </div>
+          <div class="controls">
+            <div class="control-group">
+              <label for="athleteSelect">Athlete A:</label>
+              <select id="athleteSelect" class="select"></select>
+            </div>
+            <div class="control-group">
+              <label for="athleteSelectB">Athlete B:</label>
+              <select id="athleteSelectB" class="select">
+                <option value="">-- None --</option>
+              </select>
+            </div>
+          </div>
+          <div class="chart-container">
+            <svg id="chart1"></svg>
+          </div>
+        </section>
+
+        <!-- Right: Chart 2 -->
+        <section class="chart-card" id="chart2-card">
+          <div class="chart-header">
+            <h2>Performance Correlation Analysis</h2>
+            <label class="toggle" for="trendToggle">
+              <input type="checkbox" id="trendToggle" />
+              <span>Trend line</span>
+            </label>
+            <button class="expand-btn" onclick="toggleExpand('chart2-card')">
+              <i class="fa-solid fa-expand"></i>
+            </button>
+          </div>
+          <div class="chart-container">
+            <svg id="chart2"></svg>
+          </div>
+        </section>
+      </div>
+
+      <!-- Bottom Row: Full Width Charts -->
+      <section class="chart-card full-width" id="chart3-card">
+        <h2>Athlete Origin Distribution</h2>
+        <div class="chart-container">
+          <svg id="chart3"></svg>
+        </div>
+      </section>
+
+      <!-- Split Time Distribution -->
+      <section class="chart-card full-width" id="chart6-card">
+        <div class="chart-header">
+          <h2>Split Time Distribution Analysis</h2>
+          <div class="chart-controls">
+            <div class="control-group">
+              <label for="distributionGenderSelect">Filter:</label>
+              <select id="distributionGenderSelect" class="select">
+                <option value="all">All Athletes</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="chart-container">
+          <svg id="chart6"></svg>
+        </div>
+      </section>
+
+      <!-- Bottom Row: 3 Charts -->
+      <div class="bottom-row">
+        <!-- Left: Predictive Finish Time Tool -->
+        <section class="predictor-tool chart-card" id="predictor-card">
+          <div class="predictor-header">
+            <div class="chart-header">
+              <h2>Finish Time Predictor</h2>
+              <button
+                class="expand-btn"
+                onclick="toggleExpand('predictor-card')"
+              >
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+            <button id="togglePredictorMode" class="mode-toggle-btn">
+              <i class="fa-solid fa-repeat"></i> Switch to Pace Mode
+            </button>
+          </div>
+          <div class="predictor-content">
+            <div class="input-group">
+              <label for="predictSwim">
+                <i class="fa-solid fa-person-swimming"></i> Swim Time
+              </label>
+              <input
+                type="text"
+                id="predictSwim"
+                placeholder="1:30:00"
+                pattern="\d{1,2}:\d{2}:\d{2}"
+              />
+            </div>
+            <div class="input-group">
+              <label for="predictBike">
+                <i class="fa-solid fa-person-biking"></i> Bike Time
+              </label>
+              <input
+                type="text"
+                id="predictBike"
+                placeholder="5:45:00"
+                pattern="\d{1,2}:\d{2}:\d{2}"
+              />
+            </div>
+            <div class="input-group">
+              <label for="predictRun">
+                <i class="fa-solid fa-person-running"></i> Run Time
+              </label>
+              <input
+                type="text"
+                id="predictRun"
+                placeholder="4:15:00"
+                pattern="\d{1,2}:\d{2}:\d{2}"
+              />
+            </div>
+            <button id="predictBtn" class="predict-btn">
+              <i class="fa-solid fa-calculator"></i> Calculate Finish Time
+            </button>
+          </div>
+        </section>
+
+        <!-- Middle: Chart 4 - Transition Efficiency -->
+        <section class="chart-card" id="chart4-card">
+          <div class="chart-header">
+            <h2>Transition Efficiency Analysis</h2>
+            <button class="expand-btn" onclick="toggleExpand('chart4-card')">
+              <i class="fa-solid fa-expand"></i>
+            </button>
+          </div>
+          <div class="controls">
+            <div class="control-group">
+              <label for="transitionGenderSelect">Gender:</label>
+              <select id="transitionGenderSelect" class="select">
+                <option value="all">All</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+          </div>
+          <div class="chart-container">
+            <svg id="chart4"></svg>
+          </div>
+        </section>
+
+        <!-- Right: Pro Race Progression -->
+        <section class="chart-card" id="chart5-card">
+          <div class="chart-header">
+            <h2>Pro Race Progression</h2>
+            <button class="expand-btn" onclick="toggleExpand('chart5-card')">
+              <i class="fa-solid fa-expand"></i>
+            </button>
+          </div>
+          <div class="controls">
+            <div class="control-group">
+              <label for="proGenderSelect">Gender:</label>
+              <select id="proGenderSelect" class="select">
+                <option value="MPRO">Male</option>
+                <option value="FPRO">Female</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label for="numAthletesSelect">Athletes:</label>
+              <select id="numAthletesSelect" class="select">
+                <option value="3">3</option>
+                <option value="5" selected>5</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+          </div>
+          <div class="chart-container">
+            <svg id="chart5"></svg>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        Data from
+        <a href="https://www.coachcox.co.uk/imstats/im/"
+          >Coach Cox Ironman Stats</a
+        >
+        | Visualization by D3.js
+      </p>
+    </footer>
+
+    <!-- Modal for Key Stats -->
+    <div id="statsModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2><i class="fa-solid fa-chart-line"></i> Key Statistics</h2>
+          <button class="modal-close" id="closeStatsModal">&times;</button>
+        </div>
+        <div class="modal-body" id="statsModalBody">
+          <div class="stats-container">
+            <div class="stat-box">
+              <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+              <div class="stat-info">
+                <h3 id="totalFinishers">--</h3>
+                <p>Total Finishers</p>
+              </div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-icon"><i class="fa-solid fa-clock"></i></div>
+              <div class="stat-info">
+                <h3 id="avgTime">--:--:--</h3>
+                <p>Average Finish Time</p>
+              </div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-icon"><i class="fa-solid fa-trophy"></i></div>
+              <div class="stat-info">
+                <h3 id="fastestTime">--:--:--</h3>
+                <p>Fastest Overall Time</p>
+              </div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-icon">
+                <i class="fa-solid fa-person-swimming"></i>
+              </div>
+              <div class="stat-info">
+                <h3 id="avgSwim">--:--:--</h3>
+                <p>Avg Swim Time</p>
+              </div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-icon">
+                <i class="fa-solid fa-person-biking"></i>
+              </div>
+              <div class="stat-info">
+                <h3 id="avgBike">--:--:--</h3>
+                <p>Avg Bike Time</p>
+              </div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-icon">
+                <i class="fa-solid fa-person-running"></i>
+              </div>
+              <div class="stat-info">
+                <h3 id="avgRun">--:--:--</h3>
+                <p>Avg Run Time</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for About Data -->
+    <div id="aboutModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2><i class="fa-solid fa-info-circle"></i> About This Data</h2>
+          <button class="modal-close" id="closeAboutModal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="about-content">
+            <h3>Data Source</h3>
+            <p id="dataSource">
+              This dashboard visualizes performance data from Ironman
+              triathlons, including full-distance and 70.3 half-distance events.
+            </p>
+
+            <h3>Race Information</h3>
+            <div id="raceInfo">
+              <p><strong>Event:</strong> <span id="eventName">--</span></p>
+              <p>
+                <strong>Distance:</strong> <span id="eventDistance">--</span>
+              </p>
+              <p>
+                <strong>Location:</strong> <span id="eventLocation">--</span>
+              </p>
+            </div>
+
+            <h3>Visualization Features</h3>
+            <ul>
+              <li>
+                <strong>Top Finishers:</strong> Flip cards showing fastest male
+                and female athletes with detailed splits
+              </li>
+              <li>
+                <strong>Individual Comparison:</strong> Compare split times
+                between athletes side-by-side
+              </li>
+              <li>
+                <strong>Correlation Analysis:</strong> Explore relationships
+                between different race segments
+              </li>
+              <li>
+                <strong>Pacing Strategy:</strong> Analyze how different
+                divisions distribute their effort across swim, bike, and run
+              </li>
+            </ul>
+
+            <h3>How to Use</h3>
+            <p>
+              Select different races from the dropdown at the top to switch
+              between datasets. Hover over charts for detailed information, and
+              use the athlete selectors to compare specific performances.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Predictor Results -->
+    <div id="predictorModal" class="modal">
+      <div class="modal-content predictor-modal-content">
+        <div class="modal-header">
+          <h2><i class="fa-solid fa-stopwatch"></i> Predicted Finish Time</h2>
+          <button class="modal-close" id="closePredictorModal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="predictor-result-display">
+            <div class="main-finish-time">
+              <div class="finish-time-label">Estimated Finish Time</div>
+              <div class="finish-time-value" id="modalPredictedTime">
+                --:--:--
+              </div>
+            </div>
+
+            <div class="split-breakdown">
+              <h3>Split Breakdown</h3>
+              <div class="split-grid">
+                <div class="split-item swim-split">
+                  <div class="split-icon">
+                    <i class="fa-solid fa-person-swimming"></i>
+                  </div>
+                  <div class="split-details">
+                    <div class="split-label">Swim</div>
+                    <div class="split-time" id="modalSwimTime">--:--:--</div>
+                    <div class="split-percent" id="modalSwimPercent">--%</div>
+                  </div>
+                </div>
+
+                <div class="split-item bike-split">
+                  <div class="split-icon">
+                    <i class="fa-solid fa-person-biking"></i>
+                  </div>
+                  <div class="split-details">
+                    <div class="split-label">Bike</div>
+                    <div class="split-time" id="modalBikeTime">--:--:--</div>
+                    <div class="split-percent" id="modalBikePercent">--%</div>
+                  </div>
+                </div>
+
+                <div class="split-item run-split">
+                  <div class="split-icon">
+                    <i class="fa-solid fa-person-running"></i>
+                  </div>
+                  <div class="split-details">
+                    <div class="split-label">Run</div>
+                    <div class="split-time" id="modalRunTime">--:--:--</div>
+                    <div class="split-percent" id="modalRunPercent">--%</div>
+                  </div>
+                </div>
+
+                <div class="split-item transition-split">
+                  <div class="split-icon">
+                    <i class="fa-solid fa-clock"></i>
+                  </div>
+                  <div class="split-details">
+                    <div class="split-label">Transitions</div>
+                    <div class="split-time" id="modalTransitionTime">
+                      --:--:--
+                    </div>
+                    <div class="split-percent" id="modalTransitionPercent">
+                      --%
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="percentile-info" id="modalPercentile">
+              <!-- Percentile will be inserted here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1029 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "United States" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-122.4, 37.8],
+            [-122.4, 49],
+            [-95, 49],
+            [-95, 37.8],
+            [-122.4, 37.8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Canada" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-141, 60],
+            [-141, 70],
+            [-52, 70],
+            [-52, 60],
+            [-141, 60]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Mexico" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-117, 32],
+            [-117, 15],
+            [-86, 15],
+            [-86, 32],
+            [-117, 32]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Brazil" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-73, -5],
+            [-73, -33],
+            [-35, -33],
+            [-35, -5],
+            [-73, -5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "United Kingdom" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-8, 50],
+            [-8, 59],
+            [2, 59],
+            [2, 50],
+            [-8, 50]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Germany" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-5.5, 47],
+            [-5.5, 55],
+            [15, 55],
+            [15, 47],
+            [-5.5, 47]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "France" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-5, 42],
+            [-5, 51],
+            [8, 51],
+            [8, 42],
+            [-5, 42]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Spain" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-9, 36],
+            [-9, 44],
+            [4, 44],
+            [4, 36],
+            [-9, 36]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Italy" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-6, 36],
+            [-6, 47],
+            [19, 47],
+            [19, 36],
+            [-6, 36]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Australia" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [113, -44],
+            [113, -10],
+            [154, -10],
+            [154, -44],
+            [113, -44]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "New Zealand" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [166, -47],
+            [166, -34],
+            [179, -34],
+            [179, -47],
+            [166, -47]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Japan" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [129, 31],
+            [129, 46],
+            [146, 46],
+            [146, 31],
+            [129, 31]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "China" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73, 18],
+            [73, 53],
+            [135, 53],
+            [135, 18],
+            [73, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "South Africa" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [16, -35],
+            [16, -22],
+            [33, -22],
+            [33, -35],
+            [16, -35]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Argentina" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-73, -55],
+            [-73, -22],
+            [-53, -22],
+            [-53, -55],
+            [-73, -55]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Chile" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-75, -56],
+            [-75, -17],
+            [-66, -17],
+            [-66, -56],
+            [-75, -56]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Netherlands" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [3, 51],
+            [3, 53.5],
+            [7, 53.5],
+            [7, 51],
+            [3, 51]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Belgium" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [2.5, 49.5],
+            [2.5, 51.5],
+            [6.5, 51.5],
+            [6.5, 49.5],
+            [2.5, 49.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Switzerland" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [5.9, 45.8],
+            [5.9, 47.8],
+            [10.5, 47.8],
+            [10.5, 45.8],
+            [5.9, 45.8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Austria" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [9.5, 46.4],
+            [9.5, 49],
+            [17, 49],
+            [17, 46.4],
+            [9.5, 46.4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Sweden" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [11, 55],
+            [11, 69],
+            [24, 69],
+            [24, 55],
+            [11, 55]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Norway" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [4.6, 58],
+            [4.6, 71],
+            [31, 71],
+            [31, 58],
+            [4.6, 58]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Denmark" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [8, 54.5],
+            [8, 58],
+            [15, 58],
+            [15, 54.5],
+            [8, 54.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Poland" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [14, 49],
+            [14, 55],
+            [24, 55],
+            [24, 49],
+            [14, 49]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Ireland" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-10, 51.5],
+            [-10, 55.5],
+            [-5.5, 55.5],
+            [-5.5, 51.5],
+            [-10, 51.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Portugal" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-9.5, 37],
+            [-9.5, 42],
+            [-6, 42],
+            [-6, 37],
+            [-9.5, 37]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Greece" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [19.3, 34.8],
+            [19.3, 41.7],
+            [29, 41.7],
+            [29, 34.8],
+            [19.3, 34.8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Turkey" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [26, 36],
+            [26, 42],
+            [45, 42],
+            [45, 36],
+            [26, 36]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Russia" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [19, 41],
+            [19, 82],
+            [180, 82],
+            [180, 41],
+            [19, 41]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "India" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [68, 7],
+            [68, 36],
+            [97, 36],
+            [97, 7],
+            [68, 7]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Thailand" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [97, 5.6],
+            [97, 20.5],
+            [106, 20.5],
+            [106, 5.6],
+            [97, 5.6]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Malaysia" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [99, 1],
+            [99, 7],
+            [119, 7],
+            [119, 1],
+            [99, 1]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Singapore" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [103.6, 1.2],
+            [103.6, 1.5],
+            [104, 1.5],
+            [104, 1.2],
+            [103.6, 1.2]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Philippines" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [116, 5],
+            [116, 19],
+            [127, 19],
+            [127, 5],
+            [116, 5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "South Korea" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [124, 33],
+            [124, 39],
+            [131, 39],
+            [131, 33],
+            [124, 33]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Taiwan" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [120, 22],
+            [120, 25.5],
+            [122, 25.5],
+            [122, 22],
+            [120, 22]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Colombia" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-79, -4],
+            [-79, 13],
+            [-66, 13],
+            [-66, -4],
+            [-79, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Peru" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-81, -18],
+            [-81, 0],
+            [-68, 0],
+            [-68, -18],
+            [-81, -18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Venezuela" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-73, 0.6],
+            [-73, 12],
+            [-59, 12],
+            [-59, 0.6],
+            [-73, 0.6]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Ecuador" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-81, -5],
+            [-81, 2],
+            [-75, 2],
+            [-75, -5],
+            [-81, -5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Costa Rica" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-86, 8],
+            [-86, 11],
+            [-82.5, 11],
+            [-82.5, 8],
+            [-86, 8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Panama" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-83, 7],
+            [-83, 10],
+            [-77, 10],
+            [-77, 7],
+            [-83, 7]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Israel" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [34.2, 29.5],
+            [34.2, 33.3],
+            [35.9, 33.3],
+            [35.9, 29.5],
+            [34.2, 29.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "UAE" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [51, 22.6],
+            [51, 26],
+            [56.4, 26],
+            [56.4, 22.6],
+            [51, 22.6]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Saudi Arabia" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [34.5, 16],
+            [34.5, 32],
+            [55.7, 32],
+            [55.7, 16],
+            [34.5, 16]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Egypt" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [24.7, 22],
+            [24.7, 31.7],
+            [36.9, 31.7],
+            [36.9, 22],
+            [24.7, 22]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Kenya" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [33.9, -4.7],
+            [33.9, 5.5],
+            [41.9, 5.5],
+            [41.9, -4.7],
+            [33.9, -4.7]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Nigeria" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [2.7, 4.3],
+            [2.7, 13.9],
+            [14.7, 13.9],
+            [14.7, 4.3],
+            [2.7, 4.3]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Morocco" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-13, 28],
+            [-13, 36],
+            [-1, 36],
+            [-1, 28],
+            [-13, 28]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Tunisia" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [7.5, 30.2],
+            [7.5, 37.5],
+            [11.6, 37.5],
+            [11.6, 30.2],
+            [7.5, 30.2]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Algeria" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-8.7, 19],
+            [-8.7, 37],
+            [12, 37],
+            [12, 19],
+            [-8.7, 19]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Czech Republic" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [12, 48.5],
+            [12, 51],
+            [19, 51],
+            [19, 48.5],
+            [12, 48.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Slovakia" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [16.8, 47.7],
+            [16.8, 49.6],
+            [22.6, 49.6],
+            [22.6, 47.7],
+            [16.8, 47.7]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Hungary" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [16, 45.7],
+            [16, 48.6],
+            [22.9, 48.6],
+            [22.9, 45.7],
+            [16, 45.7]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Romania" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [20.3, 43.6],
+            [20.3, 48.3],
+            [30, 48.3],
+            [30, 43.6],
+            [20.3, 43.6]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Bulgaria" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [22.4, 41.2],
+            [22.4, 44.2],
+            [28.6, 44.2],
+            [28.6, 41.2],
+            [22.4, 41.2]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Croatia" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [13.5, 42.4],
+            [13.5, 46.5],
+            [19.4, 46.5],
+            [19.4, 42.4],
+            [13.5, 42.4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Slovenia" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [13.4, 45.4],
+            [13.4, 46.9],
+            [16.6, 46.9],
+            [16.6, 45.4],
+            [13.4, 45.4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Finland" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [19.5, 59.8],
+            [19.5, 70.1],
+            [31.6, 70.1],
+            [31.6, 59.8],
+            [19.5, 59.8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Estonia" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [21.8, 57.5],
+            [21.8, 59.7],
+            [28.2, 59.7],
+            [28.2, 57.5],
+            [21.8, 57.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Latvia" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [20.9, 55.7],
+            [20.9, 58.1],
+            [28.2, 58.1],
+            [28.2, 55.7],
+            [20.9, 55.7]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Lithuania" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [20.9, 53.9],
+            [20.9, 56.5],
+            [26.8, 56.5],
+            [26.8, 53.9],
+            [20.9, 53.9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Iceland" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-24.5, 63.4],
+            [-24.5, 66.5],
+            [-13.5, 66.5],
+            [-13.5, 63.4],
+            [-24.5, 63.4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Luxembourg" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [5.7, 49.4],
+            [5.7, 50.2],
+            [6.5, 50.2],
+            [6.5, 49.4],
+            [5.7, 49.4]
+          ]
+        ]
+      }
+    }
+  ]
+}
