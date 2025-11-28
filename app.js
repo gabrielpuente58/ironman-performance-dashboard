@@ -1,5 +1,5 @@
 // Current race file
-let currentRaceFile = "ironmanarizona2024_clean.csv";
+let currentRaceFile = "half-ironmans/ironman70.3st.george2025_clean.csv";
 
 // Expand/collapse chart functionality
 function toggleExpand(cardId) {
@@ -53,17 +53,42 @@ document.addEventListener("keydown", (e) => {
 
 // Distances (in miles) for known datasets. Swim is in miles; we'll convert to yards when needed.
 const raceDistances = {
-  "ironmanarizona2024_clean.csv": {
-    swimMiles: 2.4,
-    bikeMiles: 112,
-    runMiles: 26.2,
-  },
-  "ironman70.3st.george2025_clean.csv": {
+  "half-ironmans/ironman70.3st.george2025_clean.csv": {
     swimMiles: 1.2,
     bikeMiles: 56,
     runMiles: 13.1,
   },
-  "ironmanworldchampionship2025_clean.csv": {
+  "half-ironmans/ironman70.3oceanside2025_clean.csv": {
+    swimMiles: 1.2,
+    bikeMiles: 56,
+    runMiles: 13.1,
+  },
+  "half-ironmans/ironman70.3worldchampionship-men-2025_clean.csv": {
+    swimMiles: 1.2,
+    bikeMiles: 56,
+    runMiles: 13.1,
+  },
+  "half-ironmans/ironman70.3worldchampionship-women-2025_clean.csv": {
+    swimMiles: 1.2,
+    bikeMiles: 56,
+    runMiles: 13.1,
+  },
+  "full-ironmans/ironmanlakeplacid2025_clean.csv": {
+    swimMiles: 2.4,
+    bikeMiles: 112,
+    runMiles: 26.2,
+  },
+  "full-ironmans/ironmantexas2025_clean.csv": {
+    swimMiles: 2.4,
+    bikeMiles: 112,
+    runMiles: 26.2,
+  },
+  "full-ironmans/ironmanworldchampionship-kona-women-2025_clean.csv": {
+    swimMiles: 2.4,
+    bikeMiles: 112,
+    runMiles: 26.2,
+  },
+  "full-ironmans/ironmanworldchampionship-nice-men-2025_clean.csv": {
     swimMiles: 2.4,
     bikeMiles: 112,
     runMiles: 26.2,
@@ -492,8 +517,16 @@ function initializeDashboard(data) {
       (a, b) => a.overallSeconds - b.overallSeconds
     )[0];
 
-    // Populate Male Finisher Card
+    // Store gender availability globally for filter updates
+    window.hasMaleData = maleAthletes.length > 0;
+    window.hasFemaleData = femaleAthletes.length > 0;
+
+    const maleCard = document.getElementById("male-finisher-card");
+    const femaleCard = document.getElementById("female-finisher-card");
+
+    // Populate Male Finisher Card or hide it
     if (topMale) {
+      maleCard.style.display = "block";
       document.querySelector("#male-finisher-info .finisher-name").textContent =
         topMale.Name || "Unknown";
       document.querySelector("#male-finisher-info .finisher-time").textContent =
@@ -508,10 +541,13 @@ function initializeDashboard(data) {
       maleStats[1].textContent = topMale["Bike Time"] || "--:--:--";
       maleStats[2].textContent = topMale["Run Time"] || "--:--:--";
       maleStats[3].textContent = topMale.Division || "--";
+    } else {
+      maleCard.style.display = "none";
     }
 
-    // Populate Female Finisher Card
+    // Populate Female Finisher Card or hide it
     if (topFemale) {
+      femaleCard.style.display = "block";
       document.querySelector(
         "#female-finisher-info .finisher-name"
       ).textContent = topFemale.Name || "Unknown";
@@ -530,6 +566,8 @@ function initializeDashboard(data) {
       femaleStats[1].textContent = topFemale["Bike Time"] || "--:--:--";
       femaleStats[2].textContent = topFemale["Run Time"] || "--:--:--";
       femaleStats[3].textContent = topFemale.Division || "--";
+    } else {
+      femaleCard.style.display = "none";
     }
   })();
 
@@ -1418,6 +1456,33 @@ function initializeDashboard(data) {
       "transitionGenderSelect"
     );
 
+    // Update gender filter options based on available data
+    const maleOption = transitionGenderSelect.querySelector(
+      'option[value="Male"]'
+    );
+    const femaleOption = transitionGenderSelect.querySelector(
+      'option[value="Female"]'
+    );
+
+    if (maleOption) {
+      maleOption.disabled = !window.hasMaleData;
+      if (!window.hasMaleData) maleOption.textContent = "Male (No Data)";
+    }
+    if (femaleOption) {
+      femaleOption.disabled = !window.hasFemaleData;
+      if (!window.hasFemaleData) femaleOption.textContent = "Female (No Data)";
+    }
+
+    // Auto-select available gender if current selection has no data
+    if (transitionGenderSelect.value === "Male" && !window.hasMaleData) {
+      transitionGenderSelect.value = window.hasFemaleData ? "Female" : "all";
+    } else if (
+      transitionGenderSelect.value === "Female" &&
+      !window.hasFemaleData
+    ) {
+      transitionGenderSelect.value = window.hasMaleData ? "Male" : "all";
+    }
+
     function renderChart4() {
       d3.select("#chart4").selectAll("*").remove();
 
@@ -1434,6 +1499,22 @@ function initializeDashboard(data) {
 
       if (selectedGender !== "all") {
         filteredData = filteredData.filter((d) => d.gender === selectedGender);
+      }
+
+      if (filteredData.length === 0) {
+        const svg = d3.select("#chart4");
+        svg
+          .attr("viewBox", "0 0 800 400")
+          .attr("preserveAspectRatio", "xMidYMid meet");
+        svg
+          .append("text")
+          .attr("x", 400)
+          .attr("y", 200)
+          .attr("text-anchor", "middle")
+          .style("font-size", "16px")
+          .style("fill", "#666")
+          .text("No data available for this gender selection");
+        return;
       }
 
       // Helper function to sort divisions
@@ -1686,6 +1767,30 @@ function initializeDashboard(data) {
     const proGenderSelect = document.getElementById("proGenderSelect");
     const numAthletesSelect = document.getElementById("numAthletesSelect");
 
+    // Check if pro data exists for each gender
+    const hasMalePros = data.some((d) => d.Division === "MPRO");
+    const hasFemalePros = data.some((d) => d.Division === "FPRO");
+
+    // Update gender filter options based on available pro data
+    const maleOption = proGenderSelect.querySelector('option[value="MPRO"]');
+    const femaleOption = proGenderSelect.querySelector('option[value="FPRO"]');
+
+    if (maleOption) {
+      maleOption.disabled = !hasMalePros;
+      if (!hasMalePros) maleOption.textContent = "Male (No Pro Data)";
+    }
+    if (femaleOption) {
+      femaleOption.disabled = !hasFemalePros;
+      if (!hasFemalePros) femaleOption.textContent = "Female (No Pro Data)";
+    }
+
+    // Auto-select available gender if current selection has no data
+    if (proGenderSelect.value === "MPRO" && !hasMalePros) {
+      proGenderSelect.value = hasFemalePros ? "FPRO" : "MPRO";
+    } else if (proGenderSelect.value === "FPRO" && !hasFemalePros) {
+      proGenderSelect.value = hasMalePros ? "MPRO" : "FPRO";
+    }
+
     function renderChart5() {
       d3.select("#chart5").selectAll("*").remove();
 
@@ -1704,7 +1809,7 @@ function initializeDashboard(data) {
           .attr("dominant-baseline", "middle")
           .style("font-size", "16px")
           .style("fill", "#666")
-          .text("No pro athletes in this dataset");
+          .text("No pro athletes available for this gender");
         return;
       }
 
@@ -1951,6 +2056,33 @@ function initializeDashboard(data) {
       "distributionGenderSelect"
     );
 
+    // Update gender filter options based on available data
+    const maleOption = distributionGenderSelect.querySelector(
+      'option[value="Male"]'
+    );
+    const femaleOption = distributionGenderSelect.querySelector(
+      'option[value="Female"]'
+    );
+
+    if (maleOption) {
+      maleOption.disabled = !window.hasMaleData;
+      if (!window.hasMaleData) maleOption.textContent = "Male (No Data)";
+    }
+    if (femaleOption) {
+      femaleOption.disabled = !window.hasFemaleData;
+      if (!window.hasFemaleData) femaleOption.textContent = "Female (No Data)";
+    }
+
+    // Auto-select available gender if current selection has no data
+    if (distributionGenderSelect.value === "Male" && !window.hasMaleData) {
+      distributionGenderSelect.value = window.hasFemaleData ? "Female" : "all";
+    } else if (
+      distributionGenderSelect.value === "Female" &&
+      !window.hasFemaleData
+    ) {
+      distributionGenderSelect.value = window.hasMaleData ? "Male" : "all";
+    }
+
     function renderChart6() {
       d3.select("#chart6").selectAll("*").remove();
 
@@ -1979,7 +2111,7 @@ function initializeDashboard(data) {
           .attr("text-anchor", "middle")
           .style("font-size", "16px")
           .style("fill", "#666")
-          .text("No data available");
+          .text("No data available for this gender selection");
         return;
       }
 

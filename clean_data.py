@@ -89,8 +89,8 @@ def clean_ironman_data(input_file, output_file):
     return df_clean
 
 if __name__ == "__main__":
-    input_file = "ironmanworldchampionship2025.csv"
-    output_file = "ironmanworldchampionship2025_clean.csv"
+    input_file = "full-ironmans/ironmanlakeplacid2025.csv"
+    output_file = "full-ironmans/ironmanlakeplacid2025_clean.csv"
 
     try:
         clean_ironman_data(input_file, output_file)
