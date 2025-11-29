@@ -462,6 +462,8 @@ main {
   max-height: 576px;
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .top-row .chart-container {
@@ -955,6 +957,8 @@ main {
   margin-bottom: 1rem;
   gap: 1rem;
   flex-wrap: nowrap;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .chart-card h2 {
