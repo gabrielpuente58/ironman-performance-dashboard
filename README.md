@@ -64,11 +64,11 @@ Available races:
 
 ### Chart 4: Split Time Distribution
 
-![Split Time Distribution](screenshots/split-time-distribution.png)
+![Split Time Distribution](screenshots/split-time-distribution-analysis.png)
 
 ### Race Finish Time Predictor
 
-![Race Finish Time Predictor](screenshots/predictor.png)
+![Race Finish Time Predictor](screenshots/race-predictor.png)
 
 ### Chart 5: Transition Efficiency Analysis
 
